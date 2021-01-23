@@ -12,9 +12,9 @@
 	<tbody>
 		<% @articles.each do |article| %>
 		<tr>
-			<td><p> <%= article.title %> </p></td>
-			<td><p> <%= article.description %> </p></td>
-			<td><p> Placeholder </p></td>
+			<td><%= article.title %> </td>
+			<td><%= article.description %> </td>
+			<td>Placeholder </td>
 		</tr>
 		<% end %>
 	</tbody>
