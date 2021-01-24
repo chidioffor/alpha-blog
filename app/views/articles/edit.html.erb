@@ -1,29 +1,5 @@
 <h1>Edit an Article</h1>
 
-<% if @article.errors.any? %>
-	<h3>The following error(s) prevented this article from being saved</h3>
-	<ul>
-		<% @article.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-		<% end %>
-	</ul>
-<% end %>
+<%= render 'form' %>
 
-<%= form_with(model: @article, local: true) do |form| %>
-	<p>
-		<%= form.label :title %><br>
-		<%= form.text_field :title %>
-	</p>
-
-	<p>
-		<%= form.label :description %><br>
-		<%= form.text_area :description %>
-	</p>
-
-	<p>
-		<%= form.submit %><br>
-        <%= link_to 'Back', articles_path %>
-	</p>
-
-<% end %>
-
+<p><%= link_to 'Cancel', articles_path %></p>
