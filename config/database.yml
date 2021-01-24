@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: alpha_blog_production
+  encoding: utf8
   username: alpha_blog
   password: <%= ENV['ALPHA_BLOG_DATABASE_PASSWORD'] %>
