@@ -1,26 +1,31 @@
-<h1>Articles Listing Page</h1>
+<div class="container">
+	<h3>Articles Listing Page</h3>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+				<th colspan="3">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @articles.each do |article| %>
+			<tr>
+				<td><%= article.title %> </td>
+				<td><%= article.description %> </td>
+				<td><button type="button" class="btn btn-sm btn-outline-primary"><%= link_to 'Show', article_path(article) %></button></td>
+				<td><button type="button" class="btn btn-sm btn-outline-success"><%=link_to 'Edit', edit_article_path(article) %></button></td>
+				<td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" }  %></button> </td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<br>
+	<p><%= link_to 'Create New Article', new_article_path, class:"btn btn-primary btn-sm"  %> | <%= link_to 'Home page', root_path, class:"btn btn-primary btn-sm" %> </p>
+</div>
 
 
-<table>
-	<thead>
-		<tr>
-			<th>Title</th>
-			<th>Description</th>
-			<th colspan="3">Actions</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @articles.each do |article| %>
-		<tr>
-			<td><%= article.title %> </td>
-			<td><%= article.description %> </td>
-			<td><%= link_to 'Show', article_path(article) %></td>
-			<td><%=link_to 'Edit', edit_article_path(article) %></td>
-			<td><%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" }  %> </td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
-<br>
-<%= link_to 'Create New Article', new_article_path %>
-<p> <%= link_to 'Home page', root_path %> </p>
+
+
+
