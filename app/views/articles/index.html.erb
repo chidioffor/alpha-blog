@@ -5,7 +5,12 @@
 	<div class="row justify-content-md-center">
 		<%= link_to 'New Articles', new_article_path, role:"button", class:"btn btn-primary btn-sm" %>
 	</div>
-
+	<br>
+	<nav aria-label="...">
+		<div class="row justify-content-md-center">
+			<%= will_paginate @articles, class:"pagination, pagination-sm, page-item" %>
+		</div>
+	</nav>
 	<% @articles.each do |article| %>
 		<div class="row justify-content-md-center">
 			<div class="col-8">
@@ -27,5 +32,10 @@
 			</div>
 		</div>
 	<% end %>
+	<nav aria-label="...">
+		<div class="row justify-content-md-center">
+			<%= will_paginate @articles, class:"pagination, pagination-sm, page-item" %>
+		</div>
+	</nav>
 </div>
 
