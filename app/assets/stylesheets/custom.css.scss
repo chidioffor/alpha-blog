@@ -1,7 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 .navbar {
-background-color: #FDF6EA !important;
+background-color: LightGray !important;
 }
  
 .navbar-brand {
@@ -10,4 +10,16 @@ font-size: 3rem;
  
 h1 {
 color: blue;
+}
+
+.custom-txt-bl {
+	color: blue;
+}
+
+.custom-txt-orange {
+	color: #ff3300;
+}
+
+.custom-bg-img {
+	background-image: url('16.jpg');
 }
