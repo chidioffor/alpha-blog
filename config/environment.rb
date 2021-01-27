@@ -3,3 +3,9 @@ require_relative 'application'
 
 # Initialize the Rails application.
 Rails.application.initialize!
+
+# To remove the field_with_errors functionality when a flash message is 
+# displayed, below code was added.
+ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+  html_tag.html_safe
+end

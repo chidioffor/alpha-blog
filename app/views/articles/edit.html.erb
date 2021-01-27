@@ -1,8 +1,11 @@
 <br>
-<div class="container">
-	<h3>Edit an Article</h3>
+<div class="container mt-4 justify-content-center">
+	<div class="card text-center shadow-lg ml-3 mr-3 mb-5 bg-white rounded">
+		<div class="card-header">
+	  		<strong><h4>Edit an Article</h4></strong>
+	  	</div>
+		<%= render 'form' %>
 
-	<%= render 'form' %>
-
-	<p><%= link_to 'Cancel', articles_path, class:"btn btn-primary btn-sm" %></p>
+		<p><%= link_to 'Cancel', articles_path, class:"btn btn-primary btn-sm" %></p>
+	</div>
 </div>

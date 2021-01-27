@@ -1,25 +1,22 @@
-<% if @article.errors.any? %>
-	<h3>The following error(s) prevented this article from being saved</h3>
-	<ul>
-		<% @article.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-		<% end %>
-	</ul>
-<% end %>
+
+
+<%= render 'shared/errors' %>
 
 <%= form_with(model: @article, local: true) do |form| %>
-	<p>
-		<%= form.label :title %><br>
-		<%= form.text_field :title %>
-	</p>
+	<div class="card-body">
+		<div class="card-title">
+			<h5><%= form.label :title %></h5>
+			<%= form.text_field :title, placeholder: 'Enter title' %>
+		</div>
+			
 
-	<p>
-		<%= form.label :description %><br>
-		<%= form.text_area :description %>
-	</p>
+		<div class="card-text">
+			<%= form.label :description %><br>
+			<%= form.text_area :description, placeholder: 'Enter description', cols: 40, rows: 10 %>
+		</div>
 
-	<p>
-		<%= form.submit %><br> 
-	</p>
-
+		<div>
+			<%= form.submit class:"btn btn-sm btn-success" %><br> 
+		</div>
+	</div>
 <% end %>
