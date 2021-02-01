@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 			  #render plain: params[:article]
 		@user = User.new(user_params)
 		if @user.save
-			flash[:notice] = "Welcome to AlphaBlog. #{@user.username} have successfully signed up!"
+			flash[:notice] = "Welcome to AlphaBlog. #{@user.username} has successfully been signed up!"
 			redirect_to @user
 		else
 			render 'new'
@@ -17,15 +17,20 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		
+		byebug
 	end
 
 	def edit
-		
+
 	end
 
 	def update
-		
+		if @user.update(user_params)
+			flash[:notice] = "#{@user.username.downcase} account information was successfully updated"
+			redirect_to articles_path
+		else 
+			render 'edit'
+		end
 	end
 
 	def destroy

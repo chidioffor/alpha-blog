@@ -18,7 +18,7 @@
 		</div>
 
 		<div>
-			<%= form.submit "Sign Up", class:"btn btn-sm btn-success" %><br> 
+			<%= form.submit(@user.new_record? ? "Sign Up" : "Update account", class:"btn btn-sm btn-success") %><br> 
 		</div>
 	</div>
 <% end %>
