@@ -1,0 +1,24 @@
+<%= render 'shared/errors', resource: @user %>
+
+<%= form_with(model: @user, local: true) do |form| %>
+	<div class="card-body">
+		<div class="card-title">
+			<h5><%= form.label :email %></h5>
+			<%= form.email_field :email, placeholder: 'Choose an email' %>
+		</div>
+
+		<div class="card-title">
+			<h5><%= form.label :username %></h5>
+			<%= form.text_field :username, placeholder: 'Choose username' %>
+		</div>
+
+		<div class="card-title">
+			<h5><%= form.label :password %></h5>
+			<%= form.password_field :password, placeholder: 'Choose a password' %>
+		</div>
+
+		<div>
+			<%= form.submit "Sign Up", class:"btn btn-sm btn-success" %><br> 
+		</div>
+	</div>
+<% end %>

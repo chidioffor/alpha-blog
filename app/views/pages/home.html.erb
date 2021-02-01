@@ -4,7 +4,9 @@
 	  <h1 class="display-4">Welcome to Alpha Blog!</h1>
 	  <p class="lead custom-txt-orange">This is my Alpha blog. Enjoy the experince. Dont forget to leave a feedback</p>
 	  <hr class="my-4">
-	  <p class="custom-txt-bl">Click on Articles page to get started.</p>
+	  <p class="custom-txt-bl">
+	  <%= link_to "Sign Up", signup_path, class:"btn btn-success btn-lg" %> to get started.
+	  </p>
 	  <a role="button"><%= link_to 'Articles Page', articles_path, class:"btn btn-primary btn-lg" %></a>
 	  <a role="button"><%= link_to 'About Page', about_path, class:"btn btn-primary btn-lg" %></a>
 	</div>
