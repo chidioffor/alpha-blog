@@ -17,7 +17,8 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		byebug
+		# @articles = @user.articles
+		@articles = @user.articles.order('created_at desc').paginate(page: params[:page], per_page: 4)
 	end
 
 	def edit
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
 
 	def update
 		if @user.update(user_params)
-			flash[:notice] = "#{@user.username.downcase} account information was successfully updated"
+			flash[:notice] = "#{@user.username.downcase}'s account information was successfully updated"
 			redirect_to articles_path
 		else 
 			render 'edit'
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		params.require(:user).permit(:username, :email, :password)	
+		params.require(:user).permit(:username, :email, :password, :avatar)	
 	end
 
 end

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	has_one_attached :avatar
 	before_save { self.email = email.downcase }
 	has_many :articles
 	validates :username, 

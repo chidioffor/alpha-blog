@@ -64,3 +64,15 @@ body {
 
 }
 
+.mr-auto, .mx-auto {
+	margin-right: auto!important;
+}
+
+.testimonials .testimonial-item {
+	max-width: 18rem;
+}
+
+.img-fluid, .img-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
