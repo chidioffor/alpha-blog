@@ -1,30 +1,35 @@
 <%= render 'shared/errors', resource: @user %>
 
 <%= form_with(model: @user, local: true) do |form| %>
-	<div class="card-body">
-
-		<div class="card-title">
-			<h5><%= form.label :Picture %></h5><br>
-			<%= form.file_field :avatar, placeholder: 'Upload a picture' %>
-		</div>
-
-		<div class="card-title">
-			<h5><%= form.label :email %></h5>
-			<%= form.email_field :email, placeholder: 'Choose an email' %>
-		</div>
-
-		<div class="card-title">
-			<h5><%= form.label :username %></h5>
-			<%= form.text_field :username, placeholder: 'Choose username' %>
-		</div>
-
-		<div class="card-title">
-			<h5><%= form.label :password %></h5>
-			<%= form.password_field :password, placeholder: 'Choose a password' %>
-		</div>
-
-		<div>
-			<%= form.submit(@user.new_record? ? "Sign Up" : "Update account", class:"btn btn-sm btn-success") %><br> 
+<div class="container mt-3 mb-3" id="user-container" >
+	<div class="row justify-content-center">
+		<div class="card">
+			<div class="row g-3">
+				<div class="mb-3">
+					<div class="form-label mt-3">
+						<%= form.label :Picture %>
+						<%= form.file_field :avatar, placeholder: 'Upload a picture' , class:"form-control"%>
+					</div>
+					<div class="form-label mt-3">
+						<%= form.label :email %>
+						<%= form.email_field :email, placeholder: 'Choose an email', class:"form-control" %>
+					</div>
+					<div class="form-label mt-3">
+						<%= form.label :username %>
+						<%= form.text_field :username, placeholder: 'Choose username', class:"form-control" %>
+					</div>
+					<div class="form-label mt-3">
+						<%= form.label :password %>
+						<%= form.password_field :password, placeholder: 'Choose a password', class:"form-control" %>
+					</div>
+					<div class="mt-3">
+						<%= form.submit(@user.new_record? ? "Sign Up" : "Update account", class:"btn btn-sm btn-success") %>    
+						<%= link_to 'Cancel', users_path(@user), class:"btn btn-primary btn-sm" %>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+</div>
 <% end %>
+

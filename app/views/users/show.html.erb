@@ -1,20 +1,25 @@
-<div class="container">
-	<div class="row justify-content-center">
-		<div class="col-lg-4">
-			<div class="mx-auto testimonial-item mt-3 mb-5 mb-lg-0"
-				<h3><%= @user.username %>'s profile</h3><br>
 
-				<% if @user.avatar.attached? %>
+<div class="container mt-3 mb-3" id="user-container" >
+	<div class="row justify-content-center">
+		<div class="card">
+		  	<div class="card-header">
+		    	<h3><strong><%= @user.username %>'s profile</strong></h3>
+		  	</div>
+		  	<div class="card-body">
+		  		<% if @user.avatar.attached? %>
 					<%= image_tag @user.avatar, size:"150x150", class:"rounded-circle img-fluid mb3" %>
 				<% end %>
-
-				<div class="card-body mt-0"> 
-					<%= link_to 'Back', articles_path, class:"btn btn-primary btn-sm" %>
-				</div>
-				<h3><%= @user.username %>'s Articles</h3>
-			</div>
+		    	<div class="mt-2">
+		    		<%= link_to 'Edit Profile', edit_user_path(@user), class:"btn btn-primary" %>
+		    		<%= link_to 'Show All Users', users_path, class:"btn btn-success" %>
+		    	</div>
+		  	</div>
+		  	<h3><strong><%= @user.username %>'s Articles below: </strong></h3>
 		</div>
 	</div>
 </div>
 
 <%= render 'articles/articles' %>
+
+
+

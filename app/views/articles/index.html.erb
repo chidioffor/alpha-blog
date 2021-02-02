@@ -6,18 +6,22 @@
 		<%= link_to 'New Articles', new_article_path, role:"button", class:"btn btn-primary btn-sm" %>
 	</div>
 
-	<br>
-	<nav aria-label="...">
-		<div class="row justify-content-md-center">
-			<%= will_paginate @articles, class:"pagination, pagination-sm, page-item" %>
+	<div class="row mt-3 justify-content-center">
+		<div class="digg_pagination">
+		    <%= will_paginate @articles %>
 		</div>
-	</nav>
+	</div>
+
 	<% @articles.each do |article| %>
-		<div class="row justify-content-md-center">
-			<div class="col-8">
-				<div class="card mt-4 text-center shadow mb-5 bg-white rounded ml-1">
+		<div class="container mt-3 mb-3" id="user-container" >
+			<div class="row justify-content-center">
+				<div class="card">
 				  <div class="card-header">
-				    Article posted by: <%= article.user.username %>
+				    Article posted by: 
+				    <%= link_to article.user.username, article.user %>
+				    <% if article.user.avatar.attached? %>  
+						<%= image_tag article.user.avatar, size:"50x50", class:"rounded-circle img-fluid mb3" %>
+					<% end %>
 				  </div>
 				  <div class="card-body">
 				    <h5 class="card-title"><%=link_to article.title, article_path(article), class:"text-success" %></h5>
@@ -33,10 +37,10 @@
 			</div>
 		</div>
 	<% end %>
-	<nav aria-label="...">
-		<div class="row justify-content-md-center">
-			<%= will_paginate @articles, class:"pagination, pagination-sm, page-item" %>
+	<div class="row mt-3 mb-3 justify-content-center">
+		<div class="digg_pagination">
+		    <%= will_paginate @articles %>
 		</div>
-	</nav>
+	</div>
 </div>
 
