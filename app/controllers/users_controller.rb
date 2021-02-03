@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 			  #render plain: params[:article]
 		@user = User.new(user_params)
 		if @user.save
+			session[:user_id] = @user.id
 			flash[:notice] = "Welcome to AlphaBlog. #{@user.username} has successfully been signed up!"
 			redirect_to @user
 		else

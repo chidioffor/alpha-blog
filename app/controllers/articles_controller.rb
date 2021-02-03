@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def new
-	  @article = Article.new
+	  	@article = Article.new
 	end
 
 	def edit
@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
 	def create
 	  #render plain: params[:article]
 		@article = Article.new(article_params)
-		@article.user_id = User.first.id #remove when authetication is implemented
+		@article.user_id = current_user.id 
 		if @article.save
 			flash[:notice] = "Article was successfully saved"
 			redirect_to @article
@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def update
-		@article.user_id = User.first.id #remove when authetication is implemented
+		#@article.user_id = @current_user.id 
 		if @article.update(article_params)
 			flash[:notice] = "Article was successfully saved"
 			redirect_to @article

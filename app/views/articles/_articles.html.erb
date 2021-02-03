@@ -3,7 +3,7 @@
 	    <%= will_paginate @articles %>
 	</div>
 </div>
-<% @articles.each do |article| %>
+<% @user.articles.each do |article| %>
 	<div class="container mt-3 mb-3" id="user-container" >
 		<div class="row justify-content-center">
 			<div class="card">
@@ -14,8 +14,10 @@
 			    <h5 class="card-title"><%=link_to article.title, article_path(article), class:"text-success" %></h5>
 			    <div class="card-text text-left"><%= simple_format(truncate(article.description, length: 100)) %></div>
 			    <%= link_to 'Show', article_path(article), class:"btn btn-sm btn-outline-primary" %>
-			    <%=link_to 'Edit', edit_article_path(article), class:"btn btn-sm btn-outline-success" %>
-			    <%= link_to 'Delete', article_path(article), method: :delete, class:"btn btn-sm btn-outline-success", data: { confirm: "Are you sure?" } %>
+			    <% if logged_in? && article.user == current_user %>
+				    <%=link_to 'Edit', edit_article_path(article), class:"btn btn-sm btn-outline-success" %>
+				    <%= link_to 'Delete', article_path(article), method: :delete, class:"btn btn-sm btn-outline-success", data: { confirm: "Are you sure?" } %>
+			    <% end %>
 			  </div>
 			  <div class="card-footer text-muted">
 			    <small>Created: <%= time_ago_in_words(article.created_at) %> ago |  Modified: <%= time_ago_in_words(article.updated_at) %> ago</small>

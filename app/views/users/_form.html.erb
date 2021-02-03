@@ -1,10 +1,9 @@
 <%= render 'shared/errors', resource: @user %>
 
 <%= form_with(model: @user, local: true) do |form| %>
-<div class="container mt-3 mb-3" id="user-container" >
-	<div class="row justify-content-center">
-		<div class="card">
-			<div class="row g-3">
+	<div class="container mt-3 mb-3" id="user-container" >
+		<div class="row justify-content-center">
+			<div class="card">
 				<div class="mb-3">
 					<div class="form-label mt-3">
 						<%= form.label :Picture %>
@@ -26,10 +25,9 @@
 						<%= form.submit(@user.new_record? ? "Sign Up" : "Update account", class:"btn btn-sm btn-success") %>    
 						<%= link_to 'Cancel', users_path(@user), class:"btn btn-primary btn-sm" %>
 					</div>
-				</div>
+				</div>		
 			</div>
 		</div>
 	</div>
-</div>
 <% end %>
 
