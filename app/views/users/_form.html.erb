@@ -22,8 +22,10 @@
 						<%= form.password_field :password, placeholder: 'Choose a password', class:"form-control" %>
 					</div>
 					<div class="mt-3">
-						<%= form.submit(@user.new_record? ? "Sign Up" : "Update account", class:"btn btn-sm btn-success") %>    
-						<%= link_to 'Cancel', users_path(@user), class:"btn btn-primary btn-sm" %>
+						<%= form.submit(@user.new_record? ? "Sign Up" : "Update account", class:"btn btn-sm btn-success") %> 
+						<% if logged_in? %>   
+							<%= link_to 'Cancel', user_path(current_user), class:"btn btn-primary btn-sm" %>
+						<% end %>
 					</div>
 				</div>		
 			</div>

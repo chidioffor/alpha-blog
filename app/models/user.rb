@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 	has_one_attached :avatar
 	before_save { self.email = email.downcase }
-	has_many :articles
+	has_many :articles, dependent: :destroy
 	validates :username, 
 					presence: true, 
 					length: { minimum: 4, maximum: 25 },

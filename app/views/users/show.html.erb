@@ -10,8 +10,9 @@
 					<%= image_tag @user.avatar, size:"150x150", class:"rounded-circle img-fluid mb3" %>
 				<% end %>
 		    	<div class="mt-2">
-		    		<% if logged_in? && @user == current_user %>
+		    		<% if logged_in? && (@user == current_user) || current_user.admin? %>
 		    			<%= link_to 'Edit Profile', edit_user_path(@user), class:"btn btn-primary" %>
+		    			<%= link_to 'Delete Account', user_path(current_user), method: :delete, class:"btn btn-danger", data: { confirm: "Are you sure? This will delete all associated articles too...?"} %>
 		    		<% end %>
 		    		<%= link_to 'Show All Users', users_path, class:"btn btn-success" %>
 		    	</div>
@@ -22,6 +23,4 @@
 </div>
 
 <%= render 'articles/articles' %>
-
-
 

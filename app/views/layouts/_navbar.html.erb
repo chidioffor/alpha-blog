@@ -21,7 +21,9 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to 'View Articles', articles_path, class:"dropdown-item nav_font" %>
-          <%= link_to 'New Article', new_article_path, class:"dropdown-item nav_font" %>
+          <% if logged_in? %>
+            <%= link_to 'New Article', new_article_path, class:"dropdown-item nav_font" %>
+          <% end %>
       </li>
 
       <li class="nav-item dropdown">
@@ -29,7 +31,7 @@
           
             <% if current_user.avatar.attached? %>  
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag current_user.avatar, size:"40x40", class:"rounded-circle img-fluid mb3" %>
+              <%= image_tag current_user.avatar, size:"60x60", class:"rounded img-fluid mb3" %> <%= "(Admin)" if current_user.admin? %> 
                </a>
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to "Log Out", logout_path, method: :delete, class:"dropdown-item nav_font" %>

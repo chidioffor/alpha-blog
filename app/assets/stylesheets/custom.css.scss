@@ -1,5 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+.sm-font-10 {
+  font-size: 10px;
+}
 .navbar {
 	background-color: LightGray !important;
 	color: black;
@@ -73,6 +76,7 @@ body {
 
 #sticky-footer {
   flex-shrink: none;
+
 }
 
 .bg-dark1 {
