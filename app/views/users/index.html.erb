@@ -16,7 +16,7 @@
 			  	</div>
 			  	<div class="card-body">
 			  		<% if user.avatar.attached? %>
-						<%= image_tag user.avatar, size:"150x150", class:"rounded-circle img-fluid mb3" %>
+						<%= image_tag user.avatar, size:"100x100", class:"rounded img-fluid mb3" %>
 					<% end %>
 			    	<h5 class="card-title">
 			    		<%= user.username %> has created 
@@ -26,10 +26,12 @@
 			    		Joined AlphaBlog <%= time_ago_in_words(user.created_at) %>
 			    	</p>
 
-			    	<% if logged_in? && (user == current_user) || current_user.admin? %>
-				    	<%= link_to 'Edit Profile', edit_user_path(user), class:"btn btn-primary" %> 
-				    	 <%= link_to 'Delete Profile', user_path(user), class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure? This will delete all associated articles too...?" } %> 
-			    	<% end %>
+			    	<% if logged_in? %>
+						<% if (user == current_user) || (current_user.admin?) %>
+							<%= link_to 'Edit Profile', edit_user_path(user), class:"btn btn-primary" %> 
+							<%= link_to 'Delete Profile', user_path(user), class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure? This will delete all associated articles too...?" } %> 
+						<% end %>
+					<% end %>
 			    	<%= link_to 'Show Profile', user_path(user), class:"btn btn-success" %>
 			  	</div>
 			</div>

@@ -1,0 +1,35 @@
+
+
+<div class="container justify-content-center">
+	<h3 class="text-center mt-4">Categories Listing Page</h3>
+
+	<div class="row mt-3 justify-content-center">
+		<div class="digg_pagination">
+		    <%= will_paginate @categories %>
+		</div>
+	</div>
+
+	<% @categories.each do |category| %>
+		<div class="container mt-3 mb-3" id="user-container" >
+			<div class="row justify-content-center">
+				<div class="card">
+				  <div class="card-body">
+                        <h5 class="card-title"><%=link_to category.name, category_path(category), class:"text-success" %></h5>                      
+						<h5 class="card-title">
+							Associated with: <%= link_to pluralize(category.articles.count, "article"), category_path(category) %>
+			    		</h5>
+						<div class="card-footer text-muted">
+                            <small>Created: <%= time_ago_in_words(category.created_at) %> ago |  Modified: <%= time_ago_in_words(category.updated_at) %> ago</small>
+                        </div>
+                  </div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+	<div class="row mt-3 mb-3 justify-content-center">
+		<div class="digg_pagination">
+		    <%= will_paginate @categories %>
+		</div>
+	</div>
+</div>
+

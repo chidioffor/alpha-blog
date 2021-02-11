@@ -2,8 +2,7 @@ class UsersController < ApplicationController
 	before_action :select_user, only: [:show, :edit, :update, :destroy]
 	before_action :require_user, except: [:show, :index, :new, :create]
 	before_action :require_same_user, only: [:edit, :update, :destroy]
-
-
+	
 	def index
 		@users = User.all.order('created_at desc').paginate(page: params[:page], per_page: 4)	
 	end

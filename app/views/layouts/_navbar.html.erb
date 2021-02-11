@@ -15,6 +15,18 @@
       <li class="nav-item">
         <%= link_to 'About Page', about_path, class:"nav-link nav_font" %>
       </li>
+
+      <li class="nav-item dropdown nav_font">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'View Categories', categories_path, class:"dropdown-item nav_font" %>
+          <% if logged_in? && current_user.admin? %>
+            <%= link_to 'New Category', new_category_path, class:"dropdown-item nav_font" %>
+          <% end %>
+      </li>
+
       <li class="nav-item dropdown nav_font">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Articles
@@ -31,7 +43,7 @@
           
             <% if current_user.avatar.attached? %>  
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag current_user.avatar, size:"60x60", class:"rounded img-fluid mb3" %> <%= "(Admin)" if current_user.admin? %> 
+              <%= image_tag current_user.avatar, size:"25x40", class:"rounded img-fluid mb3" %> <%= "(Admin)" if current_user.admin? %> 
                </a>
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to "Log Out", logout_path, method: :delete, class:"dropdown-item nav_font" %>
@@ -59,9 +71,11 @@
         <% end %>
       </li>
     </ul>
+    <!--
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    -->
   </div>
 </nav>
